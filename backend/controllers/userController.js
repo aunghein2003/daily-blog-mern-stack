@@ -12,7 +12,6 @@ const generateToken = (id) => {
 //Access: Public
 const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
-  console.log(username, email, password);
   if (!username || !email || !password) {
     res.status(400);
     throw new Error("Please fill the credentials");
@@ -28,7 +27,6 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //Hashing Password
   const hashedPassword = await hashPassword(password);
-  console.log(hashedPassword);
   //Create a User
   const user = await User.create({ username, email, password: hashedPassword });
   res.status(201).json({

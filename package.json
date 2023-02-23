@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Social Publishing Platform",
   "scripts": {
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "client": "npm run start -prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Aung Hein",
   "license": "ISC",
@@ -16,6 +18,7 @@
     "mongoose": "^6.9.2"
   },
   "devDependencies": {
+    "concurrently": "^7.6.0",
     "nodemon": "^2.0.20"
   }
 }
