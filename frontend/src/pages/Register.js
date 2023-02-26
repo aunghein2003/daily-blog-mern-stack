@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { register, reset } from "../features/auth/authSlice";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -53,8 +54,14 @@ function Register() {
 
   if (isLoading) {
     return (
-      <div>
-        <h1>Loading...</h1>
+      <div className="w-full flex justify-center items-center min-h-[70vh]">
+        <ClipLoader
+          color="black"
+          loading={isLoading}
+          size={80}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       </div>
     );
   }

@@ -12,10 +12,10 @@ function Navbar() {
   };
 
   return (
-    <div className="w-full py-5 px-9 flex justify-center items-center shadow-md">
+    <div className="w-full py-5 px-9 flex justify-center items-center shadow-md sticky top-0 left-0 right-0 bg-slate-50">
       <div className="flex-1">
         <Link to="/" className="font-semibold  text-3xl">
-          Logo
+          Daily Blog
         </Link>
       </div>
       <nav className="flex-1 flex justify-around">

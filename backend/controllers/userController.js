@@ -56,7 +56,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error("User does not exist");
   }
 
-  if (user && comparePassword(password)) {
+  if (user && (await comparePassword(password, user.password))) {
     res.status(200).json({
       _id: user._id,
       username: user.username,

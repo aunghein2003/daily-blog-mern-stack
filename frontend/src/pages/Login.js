@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { login, reset } from "../features/auth/authSlice";
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -30,9 +31,10 @@ function Login() {
     e.preventDefault();
     if (!email || !password) {
       toast.error("E-mail and Password cannot be empty!");
+    } else {
+      const userData = { email, password };
+      dispatch(login(userData));
     }
-    const userData = { email, password };
-    dispatch(login(userData));
   };
 
   useEffect(() => {
@@ -49,15 +51,21 @@ function Login() {
 
   if (isLoading) {
     return (
-      <div>
-        <h1>Loading...</h1>
+      <div className="w-full flex justify-center items-center min-h-[70vh]">
+        <ClipLoader
+          color="black"
+          loading={isLoading}
+          size={80}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
       </div>
     );
   }
 
   return (
     <div className="w-full mt-4 flex justify-center items-center">
-      <div className="lg:w-1/3 w-1/3 mt-4 flex justify-center items-center flex-col">
+      <div className="lg:w-1/4 w-1/2 mt-4 flex justify-center items-center flex-col">
         <h1 className="w-full text-center text-2xl font-medium block">Login</h1>
         <form className="w-full" onSubmit={onSubmit}>
           <input
@@ -79,6 +87,15 @@ function Login() {
           <button className="w-full p-2 mt-7 text-lg border-2 bg-slate-900 hover:bg-slate-800 active:bg-slate-800  text-slate-100">
             Submit
           </button>
+          <p className="w-full text-center mt-3">
+            If you don't have an account?{" "}
+            <Link
+              to="/register"
+              className="font-semibold text-lg hover:underline"
+            >
+              Create One
+            </Link>
+          </p>
         </form>
       </div>
     </div>

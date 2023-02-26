@@ -5,7 +5,7 @@ const asyncHandler = require("express-async-handler");
 //Routes: /api/blogs
 //Access: Public
 const GetBlogs = asyncHandler(async (req, res) => {
-  const blogs = await Blog.find({}).limit(5);
+  const blogs = await Blog.find({}).populate("author", { username: 1 });
   res.status(200).json(blogs);
 });
 
