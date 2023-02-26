@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Avatar from "react-avatar";
 import Modal from "./Modal";
+import Login from "../pages/Login";
 
 function BlogCard({ data }) {
   const [like, setLike] = useState(false);
@@ -74,7 +75,9 @@ function BlogCard({ data }) {
           onClick={() => checkAuthentication(() => navigate(data._id))}
         ></div>
       </div>
-      <Modal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)} />
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
+        <Login />
+      </Modal>
     </div>
   );
 }

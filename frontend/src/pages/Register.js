@@ -67,49 +67,63 @@ function Register() {
   }
 
   return (
-    <div className="w-full mt-4 flex justify-center items-center">
-      <div className="lg:w-1/4  w-1/2 mt-4 flex justify-center items-center flex-col">
-        <h1 className="w-full text-center text-2xl font-medium block">
-          Register
-        </h1>
-        <form className="w-full" onSubmit={onSubmit}>
-          <input
-            type="text"
-            className="w-full h-11 p-4 mt-5 text-lg border-2 border-gray-800"
-            placeholder="Username"
-            name="username"
-            value={username}
-            onChange={onChange}
-          />
-          <input
-            type="text"
-            className="w-full h-11 p-4 mt-5 text-lg border-2 border-gray-800"
-            placeholder="Email"
-            name="email"
-            value={email}
-            onChange={onChange}
-          />
-          <input
-            type="password"
-            className="w-full h-11 p-4 mt-5 text-lg border-2 border-gray-800"
-            placeholder="Password"
-            name="password1"
-            value={password1}
-            onChange={onChange}
-          />
-          <input
-            type="password"
-            className="w-full h-11 p-4 mt-5 text-lg border-2 border-gray-800"
-            placeholder="Confirm Password"
-            name="password2"
-            value={password2}
-            onChange={onChange}
-          />
-          <button className="w-full p-2 mt-7 text-lg border-2 bg-slate-900 hover:bg-slate-800 active:bg-slate-800  text-slate-100">
-            Sign Up
-          </button>
-        </form>
-      </div>
+    <div className="w-full mt-4 flex justify-center items-center flex-col">
+      <h1 className="block text-center text-2xl font-medium">Register</h1>
+      <form
+        className="lg:w-1/4 md:w-1/3 w-1/2 border-2 p-8 mt-5 rounded-md shadow-inner flex justify-center items-center flex-col"
+        onSubmit={onSubmit}
+      >
+        <label htmlFor="username" className="self-start text-lg text-gray-500">
+          Username :
+        </label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username}
+          onChange={onChange}
+          className="block w-full p-3 my-2 text-lg rounded-md bg-gray-200"
+        />
+
+        <label htmlFor="email" className="self-start text-lg text-gray-500">
+          Email :
+        </label>
+        <input
+          type="text"
+          id="email"
+          name="email"
+          value={email}
+          onChange={onChange}
+          className="block w-full p-3 my-2 text-lg rounded-md bg-gray-200"
+        />
+
+        <label htmlFor="password" className="self-start text-lg text-gray-500">
+          Password :
+        </label>
+        <input
+          type="password"
+          id="password"
+          name="password1"
+          value={password1}
+          onChange={onChange}
+          className="block w-full p-3 my-2 text-lg rounded-md bg-gray-200"
+        />
+
+        <label htmlFor="password2" className="self-start text-lg text-gray-500">
+          Confirm Password :
+        </label>
+        <input
+          type="password"
+          id="password2"
+          name="password2"
+          value={password2}
+          onChange={onChange}
+          className="block w-full p-3 my-2 text-lg rounded-md bg-gray-200"
+        />
+        <button className="block w-2/3 p-2 mt-3 rounded-md text-xl border-2 shadow-inner bg-gray-700 text-slate-50 hover:bg-gray-600 active:bg-gray-700">
+          Sign Up
+        </button>
+      </form>
     </div>
   );
 }
